@@ -1,11 +1,21 @@
-const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
+// metro.config.js
+const { getDefaultConfig } = require('@react-native/metro-config');
 
-/**
- * Metro configuration
- * https://reactnative.dev/docs/metro
- *
- * @type {import('@react-native/metro-config').MetroConfig}
- */
-const config = {};
+module.exports = (async () => {
+  const {
+    resolver: { assetExts, sourceExts },
+    transformer,
+  } = await getDefaultConfig();
 
-module.exports = mergeConfig(getDefaultConfig(__dirname), config);
+  return {
+    transformer,  
+    resolver: {
+      // var olan assetExts’e onnx’i ekliyoruz:
+      assetExts: [...assetExts, 'onnx'],
+      // sourceExts’i “cjs” gibi ekstraye ihtiyaç yoksa olduğu gibi bırakabilirsiniz
+      sourceExts: sourceExts,
+      // Bu satır CI/CD ya da bazen lazım: 
+      assetRegistryPath: 'react-native/Libraries/Image/AssetRegistry',
+    },
+  };
+})();
