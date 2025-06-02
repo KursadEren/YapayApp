@@ -3,6 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Görselleri seçmek için izin gerekiyor</string>
+	<key>NSDocumentPickerUsageDescription</key>
+	<string>Dosyalarınıza erişmek için izin gerekiyor</string>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
 	<string>YapayApp</string>

@@ -8,7 +8,6 @@ import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import ImageResizer from 'react-native-image-resizer';
 import RNFS from 'react-native-fs';
 import jpeg from 'jpeg-js';
-import { InferenceSession, Tensor } from 'onnxruntime-react-native'; // veya @pytorch/react-native ile Tensor
 import modelAsset from './assets/model.onnx'
 
 export default function App() {
